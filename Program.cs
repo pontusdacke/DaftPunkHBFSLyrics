@@ -19,12 +19,13 @@ namespace PontusDacke.DaftPunkHBFSLyrics
                 { a => true, s => "" }
             };
 
-        static Dictionary<Expression<Func<int, bool, bool>>, Func<string, string, string>> workItDoItHarderBetterFasterStrongerMakeItMakesUs
-            = new Dictionary<Expression<Func<int, bool, bool>>, Func<string, string, string>>
+        static Dictionary<Expression<Func<int, bool, bool, bool>>, Func<string, string, string>> workItDoItHarderBetterFasterStrongerMakeItMakesUs
+            = new Dictionary<Expression<Func<int, bool, bool, bool>>, Func<string, string, string>>
             {
-                { (i, skip14th) => i <= 1, (s1, s2) => s1 },
-                { (i, skip14th) => skip14th && i == 14, (s1, s2) => "" },
-                { (i, skip14th) => true, (s1, s2) => s1 + s2 }
+                { (i, skip14th, firstTwo) => i <= 1, (s1, s2) => s1 },
+                { (i, skip14th, firstTwo) => skip14th && i == 14, (s1, s2) => "" },
+                { (i, skip14th, firstTwo) => !firstTwo && true, (s1, s2) => s1 + s2 },
+                { (i, skip14th, firstTwo) => firstTwo, (s1, s2) => "" },
             };
 
         static Dictionary<Expression<Func<int, bool>>, Func<string, string, string>> moreThanHourOurNever 
@@ -76,10 +77,10 @@ namespace PontusDacke.DaftPunkHBFSLyrics
             switch (j)
             {
                 case 0:
-                    Console.WriteLine(workItDoItHarderBetterFasterStrongerMakeItMakesUs.First(x => x.Key.Compile()(k, skip14th)).Value(a, b));
+                    Console.WriteLine(workItDoItHarderBetterFasterStrongerMakeItMakesUs.First(x => x.Key.Compile()(k, skip14th, false)).Value(a, b));
                     break;
                 case 1:
-                    Console.WriteLine(workItDoItHarderBetterFasterStrongerMakeItMakesUs.First(x => x.Key.Compile()(k, false)).Value(b, ""));
+                    Console.WriteLine(workItDoItHarderBetterFasterStrongerMakeItMakesUs.First(x => x.Key.Compile()(k, false, true)).Value(b, ""));
                     break;
                 case 2:
                     Console.WriteLine(moreThanHourOurNever.First(x => x.Key.Compile()(k)).Value(c, d));
