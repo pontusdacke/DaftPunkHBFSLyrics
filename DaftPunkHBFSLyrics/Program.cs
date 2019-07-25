@@ -1,7 +1,6 @@
 ﻿// Daft Punk's song 'Harder, Better, Faster, Stronger',
 // Original C# Code by  Wil Dobson (wdobson@pixelsyndicate.com) 
 // https://github.com/pixelsyndicate/DaftPunkLyrics
-// Original JavaScript programmer unknown
 
 using System;
 using System.Collections.Generic;
