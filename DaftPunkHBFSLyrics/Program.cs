@@ -18,7 +18,7 @@ namespace PontusDacke.DaftPunkHBFSLyrics
                 { a => a == 0, s => s },
                 { a => true, s => "" }
             };
-
+            
         static Dictionary<Expression<Func<int, bool, bool, bool>>, Func<string, string, string>> workItDoItHarderBetterFasterStrongerMakeItMakesUs
             = new Dictionary<Expression<Func<int, bool, bool, bool>>, Func<string, string, string>>
             {
